@@ -1,0 +1,47 @@
+﻿@model MvcApplication2.Models.contactandtags
+@{
+    ViewBag.Title = "contactdetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>contactdetail</h2>
+
+            <div class="container">
+                <h2>contactdetail</h2>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Field Name</th>
+                            <th> Field Result</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>Name</td>
+                            <td>@Model.c1.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>@Model.c1.email</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tag </td>
+                            <td>@Model.c1.tagname</td>
+                        </tr>
+                        <tr>
+                            <td>Phone </td>
+                            <td>@Model.c1.Mobileno</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+  

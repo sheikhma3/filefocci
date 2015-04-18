@@ -1,0 +1,208 @@
+﻿@{
+    ViewBag.Title = "cloud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    var CLIENT_ID = '512822563508-g5u9qovj72e9rid2ak8r4j965r1rslav.apps.googleusercontent.com';
+    var SCOPES = 'https://www.googleapis.com/auth/drive';
+
+    /**
+     * Called when the client library is loaded to start the auth flow.
+     */
+    function handleClientLoad() {
+        window.setTimeout(checkAuth, 1);
+    }
+
+    /**
+     * Check if the current user has authorized the application.
+     */
+    function checkAuth() {
+        gapi.auth.authorize(
+            {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true},
+            handleAuthResult);
+    }
+
+    
+    function handleAuthResult(authResult) {
+        var authButton = document.getElementById('authorizeButton');
+        var filePicker = document.getElementById('filePicker');
+        authButton.style.display = 'none';
+        filePicker.style.display = 'none';
+        if (authResult && !authResult.error) {
+            // Access token has been successfully retrieved, requests can be sent to the API.
+            filePicker.style.display = 'block';
+            filePicker.onchange = uploadFile;
+        } else {
+            // No access token could be retrieved, show the button to start the authorization flow.
+            authButton.style.display = 'block';
+            authButton.onclick = function() {
+                gapi.auth.authorize(
+                    {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
+                    handleAuthResult);
+            };
+        }
+    }
+
+    
+       
+    function uploadFile(evt) {
+        gapi.client.load('drive', 'v2', function() {
+            var file = evt.target.files[0];
+            insertFile(file);
+        });
+    }
+
+    
+    function insertFile(fileData, callback) {
+        const boundary = '-------314159265358979323846';
+        const delimiter = "\r\n--" + boundary + "\r\n";
+        const close_delim = "\r\n--" + boundary + "--";
+
+        var reader = new FileReader();
+        reader.readAsBinaryString(fileData);
+        reader.onload = function(e) {
+            var contentType = fileData.type || 'application/octet-stream';
+            var metadata = {
+                'title': fileData.name,
+                'mimeType': contentType
+            };
+
+            var base64Data = btoa(reader.result);
+            var multipartRequestBody =
+                delimiter +
+                'Content-Type: application/json\r\n\r\n' +
+                JSON.stringify(metadata) +
+                delimiter +
+                'Content-Type: ' + contentType + '\r\n' +
+                'Content-Transfer-Encoding: base64\r\n' +
+                '\r\n' +
+                base64Data +
+                close_delim;
+
+            var request = gapi.client.request({
+                'path': '/upload/drive/v2/files',
+                'method': 'POST',
+                'params': {'uploadType': 'multipart'},
+                'headers': {
+                    'Content-Type': 'multipart/mixed; boundary="' + boundary + '"'
+                },
+                'body': multipartRequestBody});
+            if (!callback) {
+                callback = function(file) {
+                    console.log(file)
+                };
+            }
+            request.execute(callback);
+        }
+    }
+</script>
+
+
+
+
+<input type="file" id="filePicker" style="display: none" />
+<input type="button" id="authorizeButton" style="display: none" value="Authorize" />
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="signin"></div>
+<label id="info"></label>
+<script>
+    WL.Event.subscribe("auth.login", onLogin);
+    WL.init({
+        client_id: "000000004014B606",
+        redirect_uri: "http://localhost:50707",
+        scope: "wl.signin",
+        response_type: "token"
+    });
+    WL.ui({
+        name: "signin",
+        element: "signin"
+    });
+    function onLogin(session) {
+        if (!session.error) {
+            WL.api({
+                path: "me",
+                method: "GET"
+            }).then(
+                function (response) {
+                    document.getElementById("info").innerText =
+                        "Hello, " + response.first_name + " " + response.last_name + "!";
+                },
+                function (responseFailed) {
+                    document.getElementById("info").innerText =
+                        "Error calling API: " + responseFailed.error.message;
+                }
+            );
+        }
+        else {
+            document.getElementById("info").innerText =
+                "Error signing in: " + session.error_description;
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form>
+    <input id="file" name="file" type="file" />
+</form>
+<div id="uploadFile_div">OneDrive save button to appear here</div>
+<script>
+    WL.ui({
+        name: "skydrivepicker",
+        element: "uploadFile_div",
+        mode: "save",
+        onselected: onUploadFileCompleted,
+        onerror: onUploadFileError
+    });
+
+    function onUploadFileCompleted(response) {
+        WL.upload({
+            path: response.data.folders[0].id,
+            element: "file",
+            overwrite: "rename"
+        }).then(
+            function (response) {
+                document.getElementById("info").innerText =
+                    "File uploaded.";
+            },
+            function (responseFailed) {
+                document.getElementById("info").innerText =
+                    "Error uploading file: " + responseFailed.error.message;
+            }
+        );
+    };
+
+    function onUploadFileError(response) {
+        document.getElementById("info").innerText =
+            "Error getting folder info: " + response.error.message;
+    }
+</script>

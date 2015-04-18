@@ -1,0 +1,131 @@
+﻿@model MvcApplication2.Models.contactandtags
+@{
+    ViewBag.Title = "Sign in";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table>
+    <tr>
+
+
+        <td></td>
+
+    </tr>
+    <tr>
+        <td></td>
+
+        <td>
+        
+
+                        <div id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <h1 class="text-center">Login</h1>
+                                    </div>
+                                    <div class="modal-body">
+
+
+                                        <form action="../Account/signin" name="signinForm" method="post">
+
+                                            <div class="form-group">
+                                                <div id="result" style="color:red"></div>
+                                                <input type="text" class="form-control input-lg" name="username" id="username" placeholder="Enter UserName" required />
+
+
+                                            </div>
+                                            <div class="form-group">
+
+                                                <input type="password" class="form-control input-lg" name="pwd" id="pwd" placeholder="Enter Password" required />
+
+                                            </div>
+                                            <div class="form-group">
+                                                <a type="button" id="signin" name="signin" class="btn btn-primary btn-lg btn-block" value="Sign In" /> Sign In</a>
+
+                                                <span class="pull-right">@Html.ActionLink("Register", "signup", "Account", new { }, new { })</span>
+                                                @*<span>@Html.ActionLink("Fogot Password?", "forgot", "Account", new { }, new { })</span>*@
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+                    <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>*@
+
+
+                        <!-- JavaScript jQuery code from Bootply.com editor  -->
+
+
+                        <script>
+                            (function (i, s, o, g, r, a, m) {
+                                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                                    (i[r].q = i[r].q || []).push(arguments)
+                                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                            ga('create', 'UA-40413119-1', 'bootply.com');
+                            ga('send', 'pageview');
+                        </script>
+                        <!-- Quantcast Tag -->
+                        <script type="text/javascript">
+                            var _qevents = _qevents || [];
+
+                            (function () {
+                                var elem = document.createElement('script');
+                                elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+                                elem.async = true;
+                                elem.type = "text/javascript";
+                                var scpt = document.getElementsByTagName('script')[0];
+                                scpt.parentNode.insertBefore(elem, scpt);
+                            })();
+
+                            _qevents.push({
+                                qacct: "p-0cXb7ATGU9nz5"
+                            });
+                        </script>
+
+        </td>
+    </tr>
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+
+    $(document).ready(function () {
+        $('#signin').click(function () {
+           
+
+            var username = $('#username').val();
+            var pwd = $('#pwd').val();
+
+            $.getJSON("validateSignin?u=" + username + "&p=" + pwd, function (data) {
+
+                if (!data) {
+                    $('#result').text("Incorrect Username Or Password");
+
+                    $('#username').val("");
+                    $('#pwd').val("");
+                    alert("Incorrect Username Or Password")
+                    return false;
+                }
+                else {
+                    window.location = "../User/Contacts";
+                }
+            });
+
+        });
+    });
+</script>

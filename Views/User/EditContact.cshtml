@@ -1,0 +1,329 @@
+﻿@model MvcApplication2.Models.contactandtags
+@{
+    ViewBag.Title = "EditContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-xs-7">
+
+        <h2>Edit Contact</h2>
+        <form action="updatecontact" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="control-label col-sm-2">First Name:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="firstName" value="@Model.c1.firstName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Middle Name</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="midnam" name="middleName" value="@Model.c1.middleName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Mobileno" name="lastName" value="@Model.c1.lastName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Date of Birth:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="dob" value="@Model.c1.dob">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Phonetic First Name:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="phoneticFirstName" value="@Model.c1.phoneticFirstName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Phonetic Middle Name:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="phoneticMiddleName" value="@Model.c1.phoneticMiddleName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Phonetic Last Name:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="phoneticLastName" value="@Model.c1.phoneticLastName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Prefix:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="prefix" value="@Model.c1.prefix">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Suffix:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="suffix" value="@Model.c1.suffix">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Nick Name:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="nickName" value="@Model.c1.nickName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Job Title:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="jobTitle" value="@Model.c1.jobTitle">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Company:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="company" value="@Model.c1.company">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Department:</label>
+                <div class="col-xs-10">
+                    <input type="text" class="form-control" id="Name" name="department" value="@Model.c1.department">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Note:</label>
+                <div class="col-xs-10">
+                    <input type="text"  class="form-control" id="Name" name="note" value="@Model.c1.note">
+                </div>
+            </div>
+            @foreach(var x in @Model.mobilenumlist)
+            {
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Note:</label>
+                    <div class="col-xs-10">
+                        <input type="text" class="form-control" id="Name" name="note" value="@Model.c1.note">
+                    </div>
+                </div>
+            }
+           
+
+                    <div class="form-group" style="display:none">
+
+                        <div class="col-xs-10">
+
+                            <input type="text" class="form-control" id="Idbox" name="Id" value="@Model.c1.Id">
+                        </div>
+                    </div>
+                    <div class="form-group" id="numouter">
+                        <div id="num" class="row">
+                            <div class="container-fluid">
+                                <div class="control-label col-xs-2" id="moblabel">
+
+
+                                </div>
+                               
+                                <div class="col-xs-10" id="mobtextbox">
+
+
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a id="add123" onclick="myFunction()"></a>
+                        <a id="done">Done</a>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">Tag:</label>
+                        <div class="col-sm-10">
+                            <div id="div" style="display:none">
+                                <a id="elem123" rel="popover" data-original-title="Un Assigned F-TAGS" data-html="true" data-content="">Show Tags</a>
+
+                            </div>
+                            <a id="done123" onclick="abd()">Assign More Tags</a>
+                            <div class="checkbox" id="allcheckbox" style="display:none;">
+                                @foreach (var x in @Model.t)
+                                {
+                                    @*  if (@Model.c1..Equals(x.tagname))
+                                    {
+                                        <label><input type="checkbox" name="u.tagname" value="@x.tagname" checked>@x.tagname</label>
+                                    }
+                                    else
+                                    { *@
+                                    <label><input type="checkbox" name="ctag" value="@x.cTagName">@x.cTagName</label>
+
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                    <a href="updatecontact?a=@Model.c1.Id.ToString()">upDate </a>
+                    <button type="submit" class="btn btn-default">Update</button>
+        </form>
+    </div>
+</div>
+<div class="col-md-5"></div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $('#elem123').popover();
+
+    var i = 1;
+
+
+    function abd() {
+        $('#div').show();
+      var v = $('#allcheckbox').html();
+      v += "<br /> <a id=\"asstag\" onclick=\"abc()\">Add</a>";
+        $('#elem123').attr("data-content", v);
+
+        
+
+
+
+    }
+    function abc() {
+        
+        var ctag = "";
+        var cid = $('#Idbox').attr('value');
+      
+        $('input[name="ctag"]:checked').each(function () {
+            ctag += this.value + ",";
+
+        });
+        alert(ctag);
+        alert(cid);
+        $.getJSON("editContactTag?a=" + ctag + "&i=" + cid, function (data) { });
+
+
+    }
+
+
+    $('#add123').text("Add Mobile");
+
+    $(document).ready(function () {
+        $("#add123").click(function () {
+            var mv = $('#num').html();
+            
+            if (i == 1) {
+                $('#add123').text("Add Iphone Num");
+                i = i + 1;
+                $('#moblabel').html("Mobile No");
+                $('#mobtextbox').html("<input type=\"text\" class=\"form-control\" value2=\"Mobile\" name=\"MobileNo\" id=\"Name\" placeholder=\"Enter Mobile No.\"><br />");
+
+
+
+            }
+            else {
+                if (i == 2) {
+
+                    $('#add123').text("Add Work Num");
+                    $('#moblabel').html("Iphone");
+                    $('#mobtextbox').html("<input type=\"text\" class=\"form-control\" value2=\"Iphone\" name=\"MobileNo\" id=\"Name\" placeholder=\"Enter IphoneNo.\"><br />");
+
+                    i = i + 1;
+                            }
+                else {
+                    if (i == 3) {
+
+                        $('#add123').text("Add Home Num");
+                        $('#moblabel').html("Work");
+                        $('#mobtextbox').html("<input type=\"text\" class=\"form-control\" value2=\"Work\" name=\"MobileNo\" id=\"Name\" placeholder=\"Enter WorkNo.\"><br />");
+
+                        i = i + 1;
+
+
+                    }
+                    else {
+                        if (i == 4) {
+                            $('#add123').text("Add Social Num");
+                            $('#moblabel').html("Home");
+                            $('#mobtextbox').html("<input type=\"text\" class=\"form-control\" value2=\"Home\" name=\"MobileNo\" id=\"Name\" placeholder=\"Enter HomeNo.\"><br />");
+
+                            i = i + 1;
+
+
+                        }
+                        else {
+                            if (i == 5) {
+                                $('#add123').text("Add Other Num");
+                                $('#moblabel').html("Social");
+                                $('#mobtextbox').html("<input type=\"text\" class=\"form-control\" value2=\"Social\" name=\"MobileNo\" id=\"Name\" placeholder=\"Enter SocialNo.\"><br />");
+
+                                i = i + 1;
+
+
+                            }
+                            else {
+                               
+                                    $('#add123').text("Add Other Num");
+                                    $('#moblabel').html("Other");
+                                    $('#mobtextbox').html("<input type=\"text\" class=\"form-control\" value2=\"Other\" name=\"MobileNo\" id=\"Name\" placeholder=\"Enter OtherNo.\"><br />");
+
+                                    
+
+
+                                
+                            }
+                            
+                        }
+                    }
+
+
+
+                }
+            }
+
+
+           
+            $("#numouter").append(mv);
+          
+
+
+
+
+
+        });
+    });
+
+
+
+    $('#done').click(function () {
+        var ftag = "";
+        $('input[name="MobileNo"]').each(function ()
+        {
+            if ($(this).val().length != 0)
+            {
+               
+
+                ftag += this.value + ";"+$(this).attr('value2')+ "," ;
+            }
+        });
+        var cid = $('#Idbox').attr('value');
+
+        alert(cid);
+
+        alert(ftag);
+        $.getJSON("addmobilelabels?f=" + ftag + "&i=" + cid, function (data) { });
+    });
+</script>

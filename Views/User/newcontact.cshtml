@@ -1,0 +1,140 @@
+﻿@model MvcApplication2.Models.contactandtags
+@{
+    ViewBag.Title = "newcontact";
+}
+
+            <div class="container">
+    <div class="col-xs-5 col-xs-offset-2">
+        <h2>Add new Contact</h2>
+        <form action="addnewcontact" role="form">
+            <div class="form-group">
+                <label for="text"> First Name</label>
+                <input type="text" class="form-control" name="firstName" id="Name" placeholder="Enter First Name">
+            </div>
+            <div class="form-group">
+                <label for="text">Middle Name</label>
+                <input type="text" class="form-control" name="middleName" id="Name" placeholder="Enter Middle Name">
+            </div>
+            <div class="form-group">
+                <label for="text">LasrName</label>
+                <input type="text" class="form-control" name="lastName" id="Name" placeholder="Enter Last Name">
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-1">Tag:</label>
+                <div class="col-xs-11">
+
+                    <div class="checkbox">
+                        @foreach (var x in @Model.t)
+                        {
+                            <label><input type="checkbox" name="tagname" value="@x.cTagName">@x.cTagName</label>
+                        }
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="text">Date Of Birth</label>
+                <input type="text" class="form-control" name="dob" id="dob" placeholder="Enter Date Of Birth">
+            </div>
+            <div class="form-group">
+                <label for="text">Phonetic First Name</label>
+                <input type="text" class="form-control" name="phoneticFirstName" id="phoneticName" placeholder="Enter Phonetic First Name">
+            </div>
+            <div class="form-group">
+                <label for="text">Phonetic Middle Name</label>
+                <input type="text" class="form-control" name="phoneticMiddleName" id="phoneticName" placeholder="Enter Phonetic Middle Name">
+            </div>
+           
+            <div class="form-group">
+                <label for="text">Phonetic Last Name</label>
+                <input type="text" class="form-control" name="phoneticLastName" id="phoneticName" placeholder="Enter Phonetic Last Name">
+            </div>
+            <div class="form-group">
+                <label for="text">Prefix</label>
+                <input type="text" class="form-control" name="prefix" id="prefix" placeholder="Enter Prefix">
+            </div>
+            <div class="form-group">
+                <label for="text">Suffix</label>
+                <input type="text" class="form-control" name="suffix" id="suffix" placeholder="Enter Suffix">
+            </div>
+            <div class="form-group">
+                <label for="text">Nick Name</label>
+                <input type="text" class="form-control" name="nickName" id="nickName" placeholder="Enter Nick-Name">
+            </div>
+            <div class="form-group">
+                <label for="text">Job Title</label>
+                <input type="text" class="form-control" name="jobTitle" id="jobTitle" placeholder="Enter jobTitle">
+            </div>
+            <div class="form-group">
+                <label for="text">Company</label>
+                <input type="text" class="form-control" name="company" id="company" placeholder="Enter Company">
+            </div>
+            <div class="form-group">
+                <label for="text">Department</label>
+                <input type="text" class="form-control" name="department" id="department" placeholder="Enter Department">
+            </div>
+            <div class="form-group">
+                <label for="text">Note</label>
+                <input type="text" class="form-control" name="note" id="note" placeholder="Enter Note">
+            </div>
+           <!--<div class="form-group" id="numouter">
+                <div id="num">
+                    <select>
+                        <option value="volvo">Mobile</option>
+                        <option value="saab">Iphone</option>
+                        <option value="opel">Home</option>
+                        <option value="audi">Custom</option>
+                    </select>
+
+                    <input type="text" class="form-control" name="MobileNo" id="Name" placeholder="Enter Mobile No.">
+                <br />
+                 </div>
+            </div>
+            <div class="form-group">
+                <label for="text">Email</label>
+                <input type="text" class="form-control" name="email" id="Name" placeholder="Enter Email">
+            </div>
+            <div class="form-group">
+                <label for="text">Work</label>
+                <input type="text" class="form-control" name="work" id="Name" placeholder="Work Place">
+            </div>
+            <div class="form-group">
+                <a id="add123" onclick="myFunction()">Add More</a>
+                <a id="done" >Done</a>
+
+            </div>--> 
+
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#add123").click(function () {
+            var mv = $("#num").html();
+            $("#numouter").append(mv);
+
+
+
+
+
+        });
+    });
+
+
+
+
+    $('#done').click(function () {
+        var ftag = "";
+        $('input[name="MobileNo"]').each(function () {
+            if ($(this).val().length != 0) {
+                ftag += this.value + ",";
+            }
+        });
+       
+        alert(ftag);
+    });
+</script>

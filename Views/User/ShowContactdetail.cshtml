@@ -1,0 +1,118 @@
+﻿@model MvcApplication2.Models.contactandtags
+@{
+    ViewBag.Title = "ShowContactdetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+  
+            <div class="container">
+                <h2>Contact detail</h2>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Field Name</th>
+                            <th> Field Result</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>Name</td>
+                            <td>@Model.c1.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>@Model.c1.email</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tag </td>
+                            <td>@Model.c1.tagname</td>
+                        </tr>
+                        <tr>
+                            <td>Phone </td>
+                            <td>@Model.c1.Mobileno</td>
+                        </tr>
+                        <tr>
+                            <td><a href="EditContact?a=@Model.c1.Id.ToString()"> Edit This Contact</a></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+ 
+
+
+<div class="container" id="fileattached">
+    <div >
+        <ul id="formlist" >
+            <li >
+                <div id="compline">
+                    <form class="form-inline" role="form" action="FileUpload?s=@Model.c1.Id.ToString()" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="file" name="file" class="form-control" id="fileu" style="width:100%;">
+                        </div>
+                        <div class="form-group">
+                            <a type="button" href="mailattachfile" id="mail" name="mail" class="btn btn-primary btn-sm btn-block" value="Mail" /> Mail</a>
+                        </div>
+                        <div class="form-group">
+                            <a type="button" id="open" name="open" class="btn btn-primary btn-sm btn-block" value="open" /> Open</a>
+                        </div>
+                        <div class="form-group">
+                            <a type="button" id="print" name="print" class="btn btn-primary btn-sm btn-block" value="pint" /> Print</a>
+                        </div>
+                        <button id="submitu" type="submit" class="btn btn-default">Upload</button>
+
+                    </form>
+                    </div>
+            </li>
+        </ul>
+    </div>
+   
+</div>
+
+<script>
+
+   
+    $(document).ready(function () {
+        $("#add").click(function () {
+            var mv = $("#compline").html();
+            $("#formlist").append(mv);
+          
+        });
+    });
+
+
+    $("#submitu").click(function () {
+        $("input[type='file']").each(function () {
+            if ($(this).val().length == 0) {
+                alert("field is empty");
+            }
+
+        });
+    });
+    
+
+</script>
+
+
+
+
+<button id="add" onclick="myFunction()">Add More Attachments</button>
+
+
+ 

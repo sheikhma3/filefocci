@@ -1,0 +1,39 @@
+﻿@model MvcApplication2.Models.contactandtags
+           @{
+    ViewBag.Title = "managetags";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+            <div class="container">
+
+                <h2>C-Tags</h2>
+                
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th><h3>Available Tags</h3></th>
+                            <th> Actiions</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var y in Model.t)
+                        {
+                            <tr id="tagrow">
+                                <td>@y.tagname</td>
+                                <td><a href="/User/showcontact?a=@y.tagname">Delete</a></td>
+
+                            </tr>
+                        }
+                        <tr>
+                            <td><a href="addnewtag"> Add new Tag</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+

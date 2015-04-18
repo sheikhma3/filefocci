@@ -1,0 +1,71 @@
+﻿@model MvcApplication2.Models.contactandtags
+@{
+    ViewBag.Title = "gmailimportcontact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>gmailimportcontact</h2>
+
+<div class="container">
+    <h2>All Contacts</h2>
+    <div class="col-md-4 col-sm-offset-4">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th> Email</th>
+                    <th></th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var y in @Model.gmailcontact)
+                {
+                    <tr id="tagrow">
+                        <td>@y.Title</td>
+                        <td>@y.EmailID</td>
+                        <td><input name="contacts" type="checkbox" value="@y.EmailID" value2="@y.Title" /></td>
+
+
+                    </tr>
+                }
+                
+            </tbody>
+            
+        </table>
+        <div class="col-md-2">
+            <a href="#" id="impc" class="btn btn-primary">Import Contacts</a>
+            <a id="gmailc" >Matee</a>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $("#impc").click(function () {
+        var gc = $("#gmailc").attr("value");
+        
+        $.getJSON("putgmmailcontactindb?g="+gc, function (data) {
+
+        });
+    });
+
+    $('#gmailc').click(function () {
+        var ftag = "";
+        $('input[name="contacts"]:checked').each(function () {
+            if( this.getAttribute(['value2']))
+            {
+                ftag += this.value + ";" + this.getAttribute(['value2']) + ",";
+            }
+            else {
+                ftag += this.value + ","
+
+            }
+        });
+       
+        alert(ftag);
+    });
+</script>

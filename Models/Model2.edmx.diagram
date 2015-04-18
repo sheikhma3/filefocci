@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7cd564d2040942a68c150abac28b8d2b" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model1.address" Width="1.5" PointX="5.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.addressLabel" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.Contact" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.contactCTag" Width="1.5" PointX="5.25" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.contact1" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.ctagofcontct" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.dateLabel" Width="1.5" PointX="3" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.date" Width="1.5" PointX="5.25" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.email" Width="1.5" PointX="8.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.emailLabel" Width="1.5" PointX="3" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.ftag" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.ftagdetail" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.fTagDetail1" Width="1.5" PointX="5.25" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.login" Width="1.5" PointX="0.75" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.mobileNo" Width="1.5" PointX="8.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.mobileNoLabel" Width="1.5" PointX="3" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.relativeName" Width="1.5" PointX="8.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.relativeNameLabel" Width="1.5" PointX="3" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.socialProfile" Width="1.5" PointX="8.25" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.socialProfileLabel" Width="1.5" PointX="3" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.tag" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.urlLabel" Width="1.5" PointX="3" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.url" Width="1.5" PointX="8.25" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.user" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.userCTag" Width="1.5" PointX="3" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model1.userFTag" Width="1.5" PointX="3" PointY="42.75" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model1.FK_addresses_addressLabel" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_addresses_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_addresses_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_addressLabel_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_contactCTag_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_contactCTag_userCTag" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_contacts_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_dates_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_email_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_fTagDetails_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_mobileNo_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_relativeName_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_socialProfile_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_urls_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_dateLabel_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_dates_dateLabel" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_dates_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_email_emailLabel" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_email_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_Table_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_fTagDetails_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_fTagDetails_userFTag" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_mobileNo_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_mobileNoLabel_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_relativeName_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_relativeNameLabel_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_socialProfile_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_socialProfileLabel_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_urlLabel_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_urls_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_userCTag_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_userFTag_login" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_mobileNo_mobileNoLabel" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_relativeName_relativeNameLabel" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_socialProfile_relativeNameLabel" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model1.FK_urls_urlLabel" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

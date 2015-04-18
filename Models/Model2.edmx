@@ -1,0 +1,2125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="addresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="uid" Type="int" />
+          <Property Name="aid" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="addressLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="label" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="tagname" Type="nchar" MaxLength="50" />
+          <Property Name="email" Type="nchar" MaxLength="50" />
+          <Property Name="Mobileno" Type="nchar" MaxLength="50" />
+          <Property Name="landline" Type="nchar" MaxLength="50" />
+          <Property Name="work" Type="nchar" MaxLength="50" />
+          <Property Name="note" Type="nchar" MaxLength="50" />
+          <Property Name="username" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="contactCTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="uctid" Type="int" />
+        </EntityType>
+        <EntityType Name="contacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="middleName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="dob" Type="varchar" MaxLength="50" />
+          <Property Name="note" Type="varchar(max)" />
+          <Property Name="phoneticFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="phoneticMiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="phoneticLastName" Type="varchar" MaxLength="50" />
+          <Property Name="prefix" Type="varchar" MaxLength="50" />
+          <Property Name="suffix" Type="varchar" MaxLength="50" />
+          <Property Name="nickName" Type="varchar" MaxLength="50" />
+          <Property Name="jobTitle" Type="varchar" MaxLength="50" />
+          <Property Name="company" Type="varchar" MaxLength="50" />
+          <Property Name="department" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ctagofcontct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="contactid" Type="nchar" MaxLength="10" />
+          <Property Name="userid" Type="nchar" MaxLength="10" />
+          <Property Name="ftagname" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="dateLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="label" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="dates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="uid" Type="int" />
+          <Property Name="did" Type="int" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="uid" Type="int" />
+          <Property Name="eid" Type="int" />
+          <Property Name="emailId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="emailLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="label" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ftag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="50" />
+          <Property Name="username" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ftagdetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ftagname" Type="nchar" MaxLength="50" />
+          <Property Name="url" Type="nchar" MaxLength="100" />
+          <Property Name="username" Type="nchar" MaxLength="50" />
+          <Property Name="virtualname" Type="nchar" MaxLength="50" />
+          <Property Name="name" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="fTagDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="fid" Type="int" />
+          <Property Name="cid" Type="int" />
+          <Property Name="orignalName" Type="varchar" MaxLength="50" />
+          <Property Name="virtualName" Type="varchar" MaxLength="50" />
+          <Property Name="url" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="dob" Type="varchar" MaxLength="10" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="isActive" Type="int" />
+        </EntityType>
+        <EntityType Name="mobileNo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="uid" Type="int" />
+          <Property Name="mid" Type="int" />
+          <Property Name="number" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="mobileNoLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="label" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="relativeName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="cid" Type="int" />
+          <Property Name="rid" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="relativeNameLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="label" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="socialProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="cid" Type="int" />
+          <Property Name="spid" Type="int" />
+          <Property Name="socialProfileUrl" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="socialProfileLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="label" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="tagname" Type="nchar" MaxLength="50" />
+          <Property Name="tagcolor" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="urlLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="label" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="urls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="uid" Type="int" />
+          <Property Name="urlId" Type="int" />
+          <Property Name="url" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="username" Type="nchar" MaxLength="50" />
+          <Property Name="pass" Type="nchar" MaxLength="50" />
+          <Property Name="email" Type="nchar" MaxLength="50" />
+          <Property Name="type" Type="nchar" MaxLength="50" />
+          <Property Name="devicecount" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="userCTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="cTagName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="userFTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" />
+          <Property Name="fTagName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_addresses_addressLabel">
+          <End Role="addressLabel" Type="Self.addressLabel" Multiplicity="0..1" />
+          <End Role="addresses" Type="Self.addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addressLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_addresses_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="addresses" Type="Self.addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_addresses_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="addresses" Type="Self.addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_addressLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="addressLabel" Type="Self.addressLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addressLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contactCTag_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="contactCTag" Type="Self.contactCTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contactCTag">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contactCTag_userCTag">
+          <End Role="userCTag" Type="Self.userCTag" Multiplicity="0..1" />
+          <End Role="contactCTag" Type="Self.contactCTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userCTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contactCTag">
+              <PropertyRef Name="uctid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contacts_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="contacts" Type="Self.contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contacts">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dateLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="dateLabel" Type="Self.dateLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dateLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dates_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="dates" Type="Self.dates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dates">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dates_dateLabel">
+          <End Role="dateLabel" Type="Self.dateLabel" Multiplicity="0..1" />
+          <End Role="dates" Type="Self.dates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dateLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dates">
+              <PropertyRef Name="did" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dates_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="dates" Type="Self.dates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dates">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="email" Type="Self.email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="email">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_emailLabel">
+          <End Role="emailLabel" Type="Self.emailLabel" Multiplicity="0..1" />
+          <End Role="email" Type="Self.email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="emailLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="email">
+              <PropertyRef Name="eid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="email" Type="Self.email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="email">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fTagDetails_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="fTagDetails" Type="Self.fTagDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="fTagDetails">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fTagDetails_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="fTagDetails" Type="Self.fTagDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="fTagDetails">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fTagDetails_userFTag">
+          <End Role="userFTag" Type="Self.userFTag" Multiplicity="0..1" />
+          <End Role="fTagDetails" Type="Self.fTagDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userFTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="fTagDetails">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNo_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="mobileNo" Type="Self.mobileNo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNo">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNo_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="mobileNo" Type="Self.mobileNo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNo">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNo_mobileNoLabel">
+          <End Role="mobileNoLabel" Type="Self.mobileNoLabel" Multiplicity="0..1" />
+          <End Role="mobileNo" Type="Self.mobileNo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mobileNoLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNo">
+              <PropertyRef Name="mid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNoLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="mobileNoLabel" Type="Self.mobileNoLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNoLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeName_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="relativeName" Type="Self.relativeName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeName">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeName_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="relativeName" Type="Self.relativeName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeName">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeName_relativeNameLabel">
+          <End Role="relativeNameLabel" Type="Self.relativeNameLabel" Multiplicity="0..1" />
+          <End Role="relativeName" Type="Self.relativeName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="relativeNameLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeName">
+              <PropertyRef Name="rid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeNameLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="relativeNameLabel" Type="Self.relativeNameLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeNameLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfile_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="socialProfile" Type="Self.socialProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfile">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfile_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="socialProfile" Type="Self.socialProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfile">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfile_relativeNameLabel">
+          <End Role="relativeNameLabel" Type="Self.relativeNameLabel" Multiplicity="0..1" />
+          <End Role="socialProfile" Type="Self.socialProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="relativeNameLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfile">
+              <PropertyRef Name="spid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfileLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="socialProfileLabel" Type="Self.socialProfileLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfileLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="emailLabel" Type="Self.emailLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="emailLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urlLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="urlLabel" Type="Self.urlLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urlLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urls_contacts">
+          <End Role="contacts" Type="Self.contacts" Multiplicity="0..1" />
+          <End Role="urls" Type="Self.urls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urls">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urls_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="urls" Type="Self.urls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urls">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urls_urlLabel">
+          <End Role="urlLabel" Type="Self.urlLabel" Multiplicity="0..1" />
+          <End Role="urls" Type="Self.urls" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="urlLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urls">
+              <PropertyRef Name="urlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userCTag_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="userCTag" Type="Self.userCTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userCTag">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userFTag_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="userFTag" Type="Self.userFTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userFTag">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Model1StoreContainer">
+          <EntitySet Name="addresses" EntityType="Self.addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="addressLabel" EntityType="Self.addressLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contactCTag" EntityType="Self.contactCTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contacts" EntityType="Self.contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ctagofcontct" EntityType="Self.ctagofcontct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dateLabel" EntityType="Self.dateLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dates" EntityType="Self.dates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="email" EntityType="Self.email" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="emailLabel" EntityType="Self.emailLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ftag" EntityType="Self.ftag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ftagdetail" EntityType="Self.ftagdetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fTagDetails" EntityType="Self.fTagDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mobileNo" EntityType="Self.mobileNo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mobileNoLabel" EntityType="Self.mobileNoLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="relativeName" EntityType="Self.relativeName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="relativeNameLabel" EntityType="Self.relativeNameLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="socialProfile" EntityType="Self.socialProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="socialProfileLabel" EntityType="Self.socialProfileLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tags" EntityType="Self.tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="urlLabel" EntityType="Self.urlLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="urls" EntityType="Self.urls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userCTag" EntityType="Self.userCTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userFTag" EntityType="Self.userFTag" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_addresses_addressLabel" Association="Self.FK_addresses_addressLabel">
+            <End Role="addressLabel" EntitySet="addressLabel" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_addresses_contacts" Association="Self.FK_addresses_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_addresses_login" Association="Self.FK_addresses_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_addressLabel_login" Association="Self.FK_addressLabel_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="addressLabel" EntitySet="addressLabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contactCTag_contacts" Association="Self.FK_contactCTag_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="contactCTag" EntitySet="contactCTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contactCTag_userCTag" Association="Self.FK_contactCTag_userCTag">
+            <End Role="userCTag" EntitySet="userCTag" />
+            <End Role="contactCTag" EntitySet="contactCTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contacts_login" Association="Self.FK_contacts_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="contacts" EntitySet="contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dateLabel_login" Association="Self.FK_dateLabel_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="dateLabel" EntitySet="dateLabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dates_contacts" Association="Self.FK_dates_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="dates" EntitySet="dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dates_dateLabel" Association="Self.FK_dates_dateLabel">
+            <End Role="dateLabel" EntitySet="dateLabel" />
+            <End Role="dates" EntitySet="dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dates_login" Association="Self.FK_dates_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="dates" EntitySet="dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_contacts" Association="Self.FK_email_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="email" EntitySet="email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_emailLabel" Association="Self.FK_email_emailLabel">
+            <End Role="emailLabel" EntitySet="emailLabel" />
+            <End Role="email" EntitySet="email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_login" Association="Self.FK_email_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="email" EntitySet="email" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fTagDetails_contacts" Association="Self.FK_fTagDetails_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="fTagDetails" EntitySet="fTagDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fTagDetails_login" Association="Self.FK_fTagDetails_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="fTagDetails" EntitySet="fTagDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fTagDetails_userFTag" Association="Self.FK_fTagDetails_userFTag">
+            <End Role="userFTag" EntitySet="userFTag" />
+            <End Role="fTagDetails" EntitySet="fTagDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNo_contacts" Association="Self.FK_mobileNo_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="mobileNo" EntitySet="mobileNo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNo_login" Association="Self.FK_mobileNo_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="mobileNo" EntitySet="mobileNo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNo_mobileNoLabel" Association="Self.FK_mobileNo_mobileNoLabel">
+            <End Role="mobileNoLabel" EntitySet="mobileNoLabel" />
+            <End Role="mobileNo" EntitySet="mobileNo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNoLabel_login" Association="Self.FK_mobileNoLabel_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="mobileNoLabel" EntitySet="mobileNoLabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeName_contacts" Association="Self.FK_relativeName_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="relativeName" EntitySet="relativeName" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeName_login" Association="Self.FK_relativeName_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="relativeName" EntitySet="relativeName" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeName_relativeNameLabel" Association="Self.FK_relativeName_relativeNameLabel">
+            <End Role="relativeNameLabel" EntitySet="relativeNameLabel" />
+            <End Role="relativeName" EntitySet="relativeName" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeNameLabel_login" Association="Self.FK_relativeNameLabel_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="relativeNameLabel" EntitySet="relativeNameLabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfile_contacts" Association="Self.FK_socialProfile_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="socialProfile" EntitySet="socialProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfile_login" Association="Self.FK_socialProfile_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="socialProfile" EntitySet="socialProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfile_relativeNameLabel" Association="Self.FK_socialProfile_relativeNameLabel">
+            <End Role="relativeNameLabel" EntitySet="relativeNameLabel" />
+            <End Role="socialProfile" EntitySet="socialProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfileLabel_login" Association="Self.FK_socialProfileLabel_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="socialProfileLabel" EntitySet="socialProfileLabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_login" Association="Self.FK_Table_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="emailLabel" EntitySet="emailLabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urlLabel_login" Association="Self.FK_urlLabel_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="urlLabel" EntitySet="urlLabel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urls_contacts" Association="Self.FK_urls_contacts">
+            <End Role="contacts" EntitySet="contacts" />
+            <End Role="urls" EntitySet="urls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urls_login" Association="Self.FK_urls_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="urls" EntitySet="urls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urls_urlLabel" Association="Self.FK_urls_urlLabel">
+            <End Role="urlLabel" EntitySet="urlLabel" />
+            <End Role="urls" EntitySet="urls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userCTag_login" Association="Self.FK_userCTag_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="userCTag" EntitySet="userCTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userFTag_login" Association="Self.FK_userFTag_login">
+            <End Role="login" EntitySet="login" />
+            <End Role="userFTag" EntitySet="userFTag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="aid" Type="Int32" />
+          <Property Name="address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="addressLabel" Relationship="Self.FK_addresses_addressLabel" FromRole="addresses" ToRole="addressLabel" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_addresses_contacts" FromRole="addresses" ToRole="contacts" />
+          <NavigationProperty Name="login" Relationship="Self.FK_addresses_login" FromRole="addresses" ToRole="login" />
+        </EntityType>
+        <EntityType Name="addressLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK_addresses_addressLabel" FromRole="addressLabel" ToRole="addresses" />
+          <NavigationProperty Name="login" Relationship="Self.FK_addressLabel_login" FromRole="addressLabel" ToRole="login" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="tagname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Mobileno" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="landline" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="work" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="contactCTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="uctid" Type="Int32" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_contactCTag_contacts" FromRole="contactCTag" ToRole="contacts" />
+          <NavigationProperty Name="userCTag" Relationship="Self.FK_contactCTag_userCTag" FromRole="contactCTag" ToRole="userCTag" />
+        </EntityType>
+        <EntityType Name="contact1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="middleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="phoneticFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phoneticMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phoneticLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prefix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="suffix" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nickName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK_addresses_contacts" FromRole="contacts" ToRole="addresses" />
+          <NavigationProperty Name="contactCTags" Relationship="Self.FK_contactCTag_contacts" FromRole="contacts" ToRole="contactCTag" />
+          <NavigationProperty Name="login" Relationship="Self.FK_contacts_login" FromRole="contacts" ToRole="login" />
+          <NavigationProperty Name="dates" Relationship="Self.FK_dates_contacts" FromRole="contacts" ToRole="dates" />
+          <NavigationProperty Name="emails" Relationship="Self.FK_email_contacts" FromRole="contacts" ToRole="email" />
+          <NavigationProperty Name="fTagDetails" Relationship="Self.FK_fTagDetails_contacts" FromRole="contacts" ToRole="fTagDetails" />
+          <NavigationProperty Name="mobileNoes" Relationship="Self.FK_mobileNo_contacts" FromRole="contacts" ToRole="mobileNo" />
+          <NavigationProperty Name="relativeNames" Relationship="Self.FK_relativeName_contacts" FromRole="contacts" ToRole="relativeName" />
+          <NavigationProperty Name="socialProfiles" Relationship="Self.FK_socialProfile_contacts" FromRole="contacts" ToRole="socialProfile" />
+          <NavigationProperty Name="urls" Relationship="Self.FK_urls_contacts" FromRole="contacts" ToRole="urls" />
+        </EntityType>
+        <EntityType Name="ctagofcontct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="contactid" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="userid" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ftagname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dateLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="Self.FK_dateLabel_login" FromRole="dateLabel" ToRole="login" />
+          <NavigationProperty Name="dates" Relationship="Self.FK_dates_dateLabel" FromRole="dateLabel" ToRole="dates" />
+        </EntityType>
+        <EntityType Name="date">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="did" Type="Int32" />
+          <Property Name="date1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_dates_contacts" FromRole="dates" ToRole="contacts" />
+          <NavigationProperty Name="dateLabel" Relationship="Self.FK_dates_dateLabel" FromRole="dates" ToRole="dateLabel" />
+          <NavigationProperty Name="login" Relationship="Self.FK_dates_login" FromRole="dates" ToRole="login" />
+        </EntityType>
+        <EntityType Name="email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="eid" Type="Int32" />
+          <Property Name="emailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_email_contacts" FromRole="email" ToRole="contacts" />
+          <NavigationProperty Name="emailLabel" Relationship="Self.FK_email_emailLabel" FromRole="email" ToRole="emailLabel" />
+          <NavigationProperty Name="login" Relationship="Self.FK_email_login" FromRole="email" ToRole="login" />
+        </EntityType>
+        <EntityType Name="emailLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="emails" Relationship="Self.FK_email_emailLabel" FromRole="emailLabel" ToRole="email" />
+          <NavigationProperty Name="login" Relationship="Self.FK_Table_login" FromRole="emailLabel" ToRole="login" />
+        </EntityType>
+        <EntityType Name="ftag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ftagdetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ftagname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="virtualname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="fTagDetail1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="fid" Type="Int32" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="orignalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="virtualName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_fTagDetails_contacts" FromRole="fTagDetails" ToRole="contacts" />
+          <NavigationProperty Name="login" Relationship="Self.FK_fTagDetails_login" FromRole="fTagDetails" ToRole="login" />
+          <NavigationProperty Name="userFTag" Relationship="Self.FK_fTagDetails_userFTag" FromRole="fTagDetails" ToRole="userFTag" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Int32" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK_addresses_login" FromRole="login" ToRole="addresses" />
+          <NavigationProperty Name="addressLabels" Relationship="Self.FK_addressLabel_login" FromRole="login" ToRole="addressLabel" />
+          <NavigationProperty Name="contacts" Relationship="Self.FK_contacts_login" FromRole="login" ToRole="contacts" />
+          <NavigationProperty Name="dateLabels" Relationship="Self.FK_dateLabel_login" FromRole="login" ToRole="dateLabel" />
+          <NavigationProperty Name="dates" Relationship="Self.FK_dates_login" FromRole="login" ToRole="dates" />
+          <NavigationProperty Name="emails" Relationship="Self.FK_email_login" FromRole="login" ToRole="email" />
+          <NavigationProperty Name="emailLabels" Relationship="Self.FK_Table_login" FromRole="login" ToRole="emailLabel" />
+          <NavigationProperty Name="fTagDetails" Relationship="Self.FK_fTagDetails_login" FromRole="login" ToRole="fTagDetails" />
+          <NavigationProperty Name="mobileNoes" Relationship="Self.FK_mobileNo_login" FromRole="login" ToRole="mobileNo" />
+          <NavigationProperty Name="mobileNoLabels" Relationship="Self.FK_mobileNoLabel_login" FromRole="login" ToRole="mobileNoLabel" />
+          <NavigationProperty Name="relativeNames" Relationship="Self.FK_relativeName_login" FromRole="login" ToRole="relativeName" />
+          <NavigationProperty Name="relativeNameLabels" Relationship="Self.FK_relativeNameLabel_login" FromRole="login" ToRole="relativeNameLabel" />
+          <NavigationProperty Name="socialProfiles" Relationship="Self.FK_socialProfile_login" FromRole="login" ToRole="socialProfile" />
+          <NavigationProperty Name="socialProfileLabels" Relationship="Self.FK_socialProfileLabel_login" FromRole="login" ToRole="socialProfileLabel" />
+          <NavigationProperty Name="urlLabels" Relationship="Self.FK_urlLabel_login" FromRole="login" ToRole="urlLabel" />
+          <NavigationProperty Name="urls" Relationship="Self.FK_urls_login" FromRole="login" ToRole="urls" />
+          <NavigationProperty Name="userCTags" Relationship="Self.FK_userCTag_login" FromRole="login" ToRole="userCTag" />
+          <NavigationProperty Name="userFTags" Relationship="Self.FK_userFTag_login" FromRole="login" ToRole="userFTag" />
+        </EntityType>
+        <EntityType Name="mobileNo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="mid" Type="Int32" />
+          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_mobileNo_contacts" FromRole="mobileNo" ToRole="contacts" />
+          <NavigationProperty Name="login" Relationship="Self.FK_mobileNo_login" FromRole="mobileNo" ToRole="login" />
+          <NavigationProperty Name="mobileNoLabel" Relationship="Self.FK_mobileNo_mobileNoLabel" FromRole="mobileNo" ToRole="mobileNoLabel" />
+        </EntityType>
+        <EntityType Name="mobileNoLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="Self.FK_mobileNoLabel_login" FromRole="mobileNoLabel" ToRole="login" />
+          <NavigationProperty Name="mobileNoes" Relationship="Self.FK_mobileNo_mobileNoLabel" FromRole="mobileNoLabel" ToRole="mobileNo" />
+        </EntityType>
+        <EntityType Name="relativeName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="rid" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_relativeName_contacts" FromRole="relativeName" ToRole="contacts" />
+          <NavigationProperty Name="login" Relationship="Self.FK_relativeName_login" FromRole="relativeName" ToRole="login" />
+          <NavigationProperty Name="relativeNameLabel" Relationship="Self.FK_relativeName_relativeNameLabel" FromRole="relativeName" ToRole="relativeNameLabel" />
+        </EntityType>
+        <EntityType Name="relativeNameLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="Self.FK_relativeNameLabel_login" FromRole="relativeNameLabel" ToRole="login" />
+          <NavigationProperty Name="relativeNames" Relationship="Self.FK_relativeName_relativeNameLabel" FromRole="relativeNameLabel" ToRole="relativeName" />
+          <NavigationProperty Name="socialProfiles" Relationship="Self.FK_socialProfile_relativeNameLabel" FromRole="relativeNameLabel" ToRole="socialProfile" />
+        </EntityType>
+        <EntityType Name="socialProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="spid" Type="Int32" />
+          <Property Name="socialProfileUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_socialProfile_contacts" FromRole="socialProfile" ToRole="contacts" />
+          <NavigationProperty Name="login" Relationship="Self.FK_socialProfile_login" FromRole="socialProfile" ToRole="login" />
+          <NavigationProperty Name="relativeNameLabel" Relationship="Self.FK_socialProfile_relativeNameLabel" FromRole="socialProfile" ToRole="relativeNameLabel" />
+        </EntityType>
+        <EntityType Name="socialProfileLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="Self.FK_socialProfileLabel_login" FromRole="socialProfileLabel" ToRole="login" />
+        </EntityType>
+        <EntityType Name="tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="tagname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="tagcolor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="urlLabel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="login" Relationship="Self.FK_urlLabel_login" FromRole="urlLabel" ToRole="login" />
+          <NavigationProperty Name="urls" Relationship="Self.FK_urls_urlLabel" FromRole="urlLabel" ToRole="urls" />
+        </EntityType>
+        <EntityType Name="url">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="urlId" Type="Int32" />
+          <Property Name="url1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contact" Relationship="Self.FK_urls_contacts" FromRole="urls" ToRole="contacts" />
+          <NavigationProperty Name="login" Relationship="Self.FK_urls_login" FromRole="urls" ToRole="login" />
+          <NavigationProperty Name="urlLabel" Relationship="Self.FK_urls_urlLabel" FromRole="urls" ToRole="urlLabel" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="devicecount" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="userCTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="cTagName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contactCTags" Relationship="Self.FK_contactCTag_userCTag" FromRole="userCTag" ToRole="contactCTag" />
+          <NavigationProperty Name="login" Relationship="Self.FK_userCTag_login" FromRole="userCTag" ToRole="login" />
+        </EntityType>
+        <EntityType Name="userFTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="fTagName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fTagDetails" Relationship="Self.FK_fTagDetails_userFTag" FromRole="userFTag" ToRole="fTagDetails" />
+          <NavigationProperty Name="login" Relationship="Self.FK_userFTag_login" FromRole="userFTag" ToRole="login" />
+        </EntityType>
+        <Association Name="FK_addresses_addressLabel">
+          <End Role="addressLabel" Type="Self.addressLabel" Multiplicity="0..1" />
+          <End Role="addresses" Type="Self.address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addressLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="aid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_addresses_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="addresses" Type="Self.address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_addresses_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="addresses" Type="Self.address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addresses">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_addressLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="addressLabel" Type="Self.addressLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="addressLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contactCTag_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="contactCTag" Type="Self.contactCTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contactCTag">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contactCTag_userCTag">
+          <End Role="userCTag" Type="Self.userCTag" Multiplicity="0..1" />
+          <End Role="contactCTag" Type="Self.contactCTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userCTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contactCTag">
+              <PropertyRef Name="uctid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contacts_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="contacts" Type="Self.contact1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contacts">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dates_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="dates" Type="Self.date" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dates">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="email" Type="Self.email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="email">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fTagDetails_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="fTagDetails" Type="Self.fTagDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="fTagDetails">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNo_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="mobileNo" Type="Self.mobileNo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNo">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeName_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="relativeName" Type="Self.relativeName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeName">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfile_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="socialProfile" Type="Self.socialProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfile">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urls_contacts">
+          <End Role="contacts" Type="Self.contact1" Multiplicity="0..1" />
+          <End Role="urls" Type="Self.url" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urls">
+              <PropertyRef Name="cid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dateLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="dateLabel" Type="Self.dateLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dateLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dates_dateLabel">
+          <End Role="dateLabel" Type="Self.dateLabel" Multiplicity="0..1" />
+          <End Role="dates" Type="Self.date" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dateLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dates">
+              <PropertyRef Name="did" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dates_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="dates" Type="Self.date" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dates">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_emailLabel">
+          <End Role="emailLabel" Type="Self.emailLabel" Multiplicity="0..1" />
+          <End Role="email" Type="Self.email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="emailLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="email">
+              <PropertyRef Name="eid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_email_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="email" Type="Self.email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="email">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="emailLabel" Type="Self.emailLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="emailLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fTagDetails_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="fTagDetails" Type="Self.fTagDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="fTagDetails">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fTagDetails_userFTag">
+          <End Role="userFTag" Type="Self.userFTag" Multiplicity="0..1" />
+          <End Role="fTagDetails" Type="Self.fTagDetail1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userFTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="fTagDetails">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNo_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="mobileNo" Type="Self.mobileNo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNo">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNoLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="mobileNoLabel" Type="Self.mobileNoLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNoLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeName_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="relativeName" Type="Self.relativeName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeName">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeNameLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="relativeNameLabel" Type="Self.relativeNameLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeNameLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfile_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="socialProfile" Type="Self.socialProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfile">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfileLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="socialProfileLabel" Type="Self.socialProfileLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfileLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urlLabel_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="urlLabel" Type="Self.urlLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urlLabel">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urls_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="urls" Type="Self.url" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urls">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userCTag_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="userCTag" Type="Self.userCTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userCTag">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userFTag_login">
+          <End Role="login" Type="Self.login" Multiplicity="0..1" />
+          <End Role="userFTag" Type="Self.userFTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="login">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userFTag">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_mobileNo_mobileNoLabel">
+          <End Role="mobileNoLabel" Type="Self.mobileNoLabel" Multiplicity="0..1" />
+          <End Role="mobileNo" Type="Self.mobileNo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mobileNoLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="mobileNo">
+              <PropertyRef Name="mid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relativeName_relativeNameLabel">
+          <End Role="relativeNameLabel" Type="Self.relativeNameLabel" Multiplicity="0..1" />
+          <End Role="relativeName" Type="Self.relativeName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="relativeNameLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="relativeName">
+              <PropertyRef Name="rid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_socialProfile_relativeNameLabel">
+          <End Role="relativeNameLabel" Type="Self.relativeNameLabel" Multiplicity="0..1" />
+          <End Role="socialProfile" Type="Self.socialProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="relativeNameLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="socialProfile">
+              <PropertyRef Name="spid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_urls_urlLabel">
+          <End Role="urlLabel" Type="Self.urlLabel" Multiplicity="0..1" />
+          <End Role="urls" Type="Self.url" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="urlLabel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="urls">
+              <PropertyRef Name="urlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="addresses" EntityType="Self.address" />
+          <EntitySet Name="addressLabels" EntityType="Self.addressLabel" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="contactCTags" EntityType="Self.contactCTag" />
+          <EntitySet Name="contacts1" EntityType="Self.contact1" />
+          <EntitySet Name="ctagofcontcts" EntityType="Self.ctagofcontct" />
+          <EntitySet Name="dateLabels" EntityType="Self.dateLabel" />
+          <EntitySet Name="dates" EntityType="Self.date" />
+          <EntitySet Name="emails" EntityType="Self.email" />
+          <EntitySet Name="emailLabels" EntityType="Self.emailLabel" />
+          <EntitySet Name="ftags" EntityType="Self.ftag" />
+          <EntitySet Name="ftagdetails" EntityType="Self.ftagdetail" />
+          <EntitySet Name="fTagDetails1" EntityType="Self.fTagDetail1" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="mobileNoes" EntityType="Self.mobileNo" />
+          <EntitySet Name="mobileNoLabels" EntityType="Self.mobileNoLabel" />
+          <EntitySet Name="relativeNames" EntityType="Self.relativeName" />
+          <EntitySet Name="relativeNameLabels" EntityType="Self.relativeNameLabel" />
+          <EntitySet Name="socialProfiles" EntityType="Self.socialProfile" />
+          <EntitySet Name="socialProfileLabels" EntityType="Self.socialProfileLabel" />
+          <EntitySet Name="tags" EntityType="Self.tag" />
+          <EntitySet Name="urlLabels" EntityType="Self.urlLabel" />
+          <EntitySet Name="urls" EntityType="Self.url" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="userCTags" EntityType="Self.userCTag" />
+          <EntitySet Name="userFTags" EntityType="Self.userFTag" />
+          <AssociationSet Name="FK_addresses_addressLabel" Association="Self.FK_addresses_addressLabel">
+            <End Role="addressLabel" EntitySet="addressLabels" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_addresses_contacts" Association="Self.FK_addresses_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_addresses_login" Association="Self.FK_addresses_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="addresses" EntitySet="addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_addressLabel_login" Association="Self.FK_addressLabel_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="addressLabel" EntitySet="addressLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contactCTag_contacts" Association="Self.FK_contactCTag_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="contactCTag" EntitySet="contactCTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contactCTag_userCTag" Association="Self.FK_contactCTag_userCTag">
+            <End Role="userCTag" EntitySet="userCTags" />
+            <End Role="contactCTag" EntitySet="contactCTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contacts_login" Association="Self.FK_contacts_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="contacts" EntitySet="contacts1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dates_contacts" Association="Self.FK_dates_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="dates" EntitySet="dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_contacts" Association="Self.FK_email_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="email" EntitySet="emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fTagDetails_contacts" Association="Self.FK_fTagDetails_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="fTagDetails" EntitySet="fTagDetails1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNo_contacts" Association="Self.FK_mobileNo_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="mobileNo" EntitySet="mobileNoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeName_contacts" Association="Self.FK_relativeName_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="relativeName" EntitySet="relativeNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfile_contacts" Association="Self.FK_socialProfile_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="socialProfile" EntitySet="socialProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urls_contacts" Association="Self.FK_urls_contacts">
+            <End Role="contacts" EntitySet="contacts1" />
+            <End Role="urls" EntitySet="urls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dateLabel_login" Association="Self.FK_dateLabel_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="dateLabel" EntitySet="dateLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dates_dateLabel" Association="Self.FK_dates_dateLabel">
+            <End Role="dateLabel" EntitySet="dateLabels" />
+            <End Role="dates" EntitySet="dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dates_login" Association="Self.FK_dates_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="dates" EntitySet="dates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_emailLabel" Association="Self.FK_email_emailLabel">
+            <End Role="emailLabel" EntitySet="emailLabels" />
+            <End Role="email" EntitySet="emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_email_login" Association="Self.FK_email_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="email" EntitySet="emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_login" Association="Self.FK_Table_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="emailLabel" EntitySet="emailLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fTagDetails_login" Association="Self.FK_fTagDetails_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="fTagDetails" EntitySet="fTagDetails1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fTagDetails_userFTag" Association="Self.FK_fTagDetails_userFTag">
+            <End Role="userFTag" EntitySet="userFTags" />
+            <End Role="fTagDetails" EntitySet="fTagDetails1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNo_login" Association="Self.FK_mobileNo_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="mobileNo" EntitySet="mobileNoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNoLabel_login" Association="Self.FK_mobileNoLabel_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="mobileNoLabel" EntitySet="mobileNoLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeName_login" Association="Self.FK_relativeName_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="relativeName" EntitySet="relativeNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeNameLabel_login" Association="Self.FK_relativeNameLabel_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="relativeNameLabel" EntitySet="relativeNameLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfile_login" Association="Self.FK_socialProfile_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="socialProfile" EntitySet="socialProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfileLabel_login" Association="Self.FK_socialProfileLabel_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="socialProfileLabel" EntitySet="socialProfileLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urlLabel_login" Association="Self.FK_urlLabel_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="urlLabel" EntitySet="urlLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urls_login" Association="Self.FK_urls_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="urls" EntitySet="urls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userCTag_login" Association="Self.FK_userCTag_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="userCTag" EntitySet="userCTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userFTag_login" Association="Self.FK_userFTag_login">
+            <End Role="login" EntitySet="logins" />
+            <End Role="userFTag" EntitySet="userFTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_mobileNo_mobileNoLabel" Association="Self.FK_mobileNo_mobileNoLabel">
+            <End Role="mobileNoLabel" EntitySet="mobileNoLabels" />
+            <End Role="mobileNo" EntitySet="mobileNoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relativeName_relativeNameLabel" Association="Self.FK_relativeName_relativeNameLabel">
+            <End Role="relativeNameLabel" EntitySet="relativeNameLabels" />
+            <End Role="relativeName" EntitySet="relativeNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_socialProfile_relativeNameLabel" Association="Self.FK_socialProfile_relativeNameLabel">
+            <End Role="relativeNameLabel" EntitySet="relativeNameLabels" />
+            <End Role="socialProfile" EntitySet="socialProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_urls_urlLabel" Association="Self.FK_urls_urlLabel">
+            <End Role="urlLabel" EntitySet="urlLabels" />
+            <End Role="urls" EntitySet="urls" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1Model1StoreContainer" CdmEntityContainer="Database1Entities2">
+          <EntitySetMapping Name="addresses">
+            <EntityTypeMapping TypeName="Database1Model1.address">
+              <MappingFragment StoreEntitySet="addresses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="aid" ColumnName="aid" />
+                <ScalarProperty Name="address1" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="addressLabels">
+            <EntityTypeMapping TypeName="Database1Model1.addressLabel">
+              <MappingFragment StoreEntitySet="addressLabel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="Database1Model1.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="tagname" ColumnName="tagname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Mobileno" ColumnName="Mobileno" />
+                <ScalarProperty Name="landline" ColumnName="landline" />
+                <ScalarProperty Name="work" ColumnName="work" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactCTags">
+            <EntityTypeMapping TypeName="Database1Model1.contactCTag">
+              <MappingFragment StoreEntitySet="contactCTag">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="uctid" ColumnName="uctid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts1">
+            <EntityTypeMapping TypeName="Database1Model1.contact1">
+              <MappingFragment StoreEntitySet="contacts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="middleName" ColumnName="middleName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="phoneticFirstName" ColumnName="phoneticFirstName" />
+                <ScalarProperty Name="phoneticMiddleName" ColumnName="phoneticMiddleName" />
+                <ScalarProperty Name="phoneticLastName" ColumnName="phoneticLastName" />
+                <ScalarProperty Name="prefix" ColumnName="prefix" />
+                <ScalarProperty Name="suffix" ColumnName="suffix" />
+                <ScalarProperty Name="nickName" ColumnName="nickName" />
+                <ScalarProperty Name="jobTitle" ColumnName="jobTitle" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="department" ColumnName="department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ctagofcontcts">
+            <EntityTypeMapping TypeName="Database1Model1.ctagofcontct">
+              <MappingFragment StoreEntitySet="ctagofcontct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="contactid" ColumnName="contactid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="ftagname" ColumnName="ftagname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dateLabels">
+            <EntityTypeMapping TypeName="Database1Model1.dateLabel">
+              <MappingFragment StoreEntitySet="dateLabel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dates">
+            <EntityTypeMapping TypeName="Database1Model1.date">
+              <MappingFragment StoreEntitySet="dates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="did" ColumnName="did" />
+                <ScalarProperty Name="date1" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emails">
+            <EntityTypeMapping TypeName="Database1Model1.email">
+              <MappingFragment StoreEntitySet="email">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="eid" ColumnName="eid" />
+                <ScalarProperty Name="emailId" ColumnName="emailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emailLabels">
+            <EntityTypeMapping TypeName="Database1Model1.emailLabel">
+              <MappingFragment StoreEntitySet="emailLabel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ftags">
+            <EntityTypeMapping TypeName="Database1Model1.ftag">
+              <MappingFragment StoreEntitySet="ftag">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ftagdetails">
+            <EntityTypeMapping TypeName="Database1Model1.ftagdetail">
+              <MappingFragment StoreEntitySet="ftagdetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ftagname" ColumnName="ftagname" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="virtualname" ColumnName="virtualname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fTagDetails1">
+            <EntityTypeMapping TypeName="Database1Model1.fTagDetail1">
+              <MappingFragment StoreEntitySet="fTagDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="orignalName" ColumnName="orignalName" />
+                <ScalarProperty Name="virtualName" ColumnName="virtualName" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="Database1Model1.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mobileNoes">
+            <EntityTypeMapping TypeName="Database1Model1.mobileNo">
+              <MappingFragment StoreEntitySet="mobileNo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="mid" ColumnName="mid" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mobileNoLabels">
+            <EntityTypeMapping TypeName="Database1Model1.mobileNoLabel">
+              <MappingFragment StoreEntitySet="mobileNoLabel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="relativeNames">
+            <EntityTypeMapping TypeName="Database1Model1.relativeName">
+              <MappingFragment StoreEntitySet="relativeName">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="relativeNameLabels">
+            <EntityTypeMapping TypeName="Database1Model1.relativeNameLabel">
+              <MappingFragment StoreEntitySet="relativeNameLabel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="socialProfiles">
+            <EntityTypeMapping TypeName="Database1Model1.socialProfile">
+              <MappingFragment StoreEntitySet="socialProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="spid" ColumnName="spid" />
+                <ScalarProperty Name="socialProfileUrl" ColumnName="socialProfileUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="socialProfileLabels">
+            <EntityTypeMapping TypeName="Database1Model1.socialProfileLabel">
+              <MappingFragment StoreEntitySet="socialProfileLabel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tags">
+            <EntityTypeMapping TypeName="Database1Model1.tag">
+              <MappingFragment StoreEntitySet="tags">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="tagname" ColumnName="tagname" />
+                <ScalarProperty Name="tagcolor" ColumnName="tagcolor" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="urlLabels">
+            <EntityTypeMapping TypeName="Database1Model1.urlLabel">
+              <MappingFragment StoreEntitySet="urlLabel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="label" ColumnName="label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="urls">
+            <EntityTypeMapping TypeName="Database1Model1.url">
+              <MappingFragment StoreEntitySet="urls">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="urlId" ColumnName="urlId" />
+                <ScalarProperty Name="url1" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="Database1Model1.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="devicecount" ColumnName="devicecount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userCTags">
+            <EntityTypeMapping TypeName="Database1Model1.userCTag">
+              <MappingFragment StoreEntitySet="userCTag">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="cTagName" ColumnName="cTagName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userFTags">
+            <EntityTypeMapping TypeName="Database1Model1.userFTag">
+              <MappingFragment StoreEntitySet="userFTag">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="fTagName" ColumnName="fTagName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

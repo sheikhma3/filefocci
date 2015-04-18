@@ -96,9 +96,9 @@
             @foreach(var x in @Model.mobilenumlist)
             {
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Note:</label>
+                    <label class="control-label col-sm-2">Mobile No</label>
                     <div class="col-xs-10">
-                        <input type="text" class="form-control" id="Name" name="note" value="@Model.c1.note">
+                        <input type="text" class="form-control" id="Name" name="note" value="@x.number">
                     </div>
                 </div>
             }

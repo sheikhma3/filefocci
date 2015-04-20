@@ -269,7 +269,7 @@
                 <div id="namedetail"></div>
                 <div id="attachdetail1">
                     <div id="div">
-                        <a id="elem1234" href="#" rel="popover" data-original-title="C-TAGS" data-placement="bottom" data-html="true" data-content="">C-Tag</a>
+                        <a id="elem1234" href="#" rel="popover" data-container="body" data-original-title="C-TAGS" data-placement="bottom" data-html="true" data-content="">C-Tag</a>
                     </div>
                 </div>
                 <div id="ctagscntct" style="display:none">
@@ -542,6 +542,8 @@
 
 
 
+
+
     $('#doneftagedit').click(function () {
         var ftag = "";
         var fileid = $('#inputcheckbox').attr("value2");
@@ -654,6 +656,7 @@
             var firstCellText = $("td:first", this).text();
             var id = $("td:eq(1) a", this).attr("value");
 
+
             $.getJSON("ShowContactdetailJSON?a=" + id, function (data) {
                 if (data == null) {
                     alert("No data available");
@@ -703,7 +706,6 @@
                         htmlfiledetail += "<tr><td id =\"tablerowfiledetail\"colspan=\"3\"><div>" + data.ftdetail[i].url + "<br /><button id=\"mailbtninftagdetail\" onclick=\"mail()\">Mail</button><button id=\"openbtninftagdetail\">Open</button><button id=\"favtbtninftagdetai\">Favt</button></div></td></tr>";
 
                     }
-
                     $("#namedetail").html(name);
                     $('#elem123').hide();
                     $('#aftag').hide();
@@ -712,12 +714,14 @@
                     $("#tablefiledetail").html(htmlfiledetail);
                     $("#tabledetailall").show();
                     $("#filedetailcheckboxes1").show();
-                    
+
                     $("#filedetail").hide();
                     $("#tabledetail").show();
                     $("#filedetailcheckboxes").html("");
                     $('#unassignedtag').html("");
                     $("#filedetailcheckboxes1").html("");
+                 
+
 
 
 
